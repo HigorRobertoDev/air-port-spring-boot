@@ -75,4 +75,21 @@ public class AirPortService implements AirPortRoles {
         airPortRepository.delete(airPort);
     }
 
+    @Override
+    public AirPort update(AirPortDTO airPortDTO) {
+        AirPort airPort = airPortRepository.findById((long) airPortDTO.getId())
+                .orElseThrow(() -> new EntityNotFoundException("There isn't Airport with id: " + (long) airPortDTO.getId()));
+
+        airPort.setName(airPortDTO.getName());
+        airPort.setTelSuperintendente(airPortDTO.getTelSuperintendente());
+        airPort.setPhone(airPortDTO.getPhone());
+        airPort.setTelImprensa(airPortDTO.getTelImprensa());
+        airPort.setState(airPortDTO.getState());
+        airPort.setUrl(airPortDTO.getUrl());
+        airPort.setCity(airPortDTO.getCity());
+        airPort.setSdu(airPortDTO.getSDU());
+
+        return airPortRepository.save(airPort);
+    }
+
 }

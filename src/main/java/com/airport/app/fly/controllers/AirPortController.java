@@ -59,4 +59,12 @@ public class AirPortController {
         );
     }
 
+    @PutMapping
+    public ResponseEntity<AirPortRepresentation> updateAirPort(@RequestBody AirPortDTO input) {
+        return new ResponseEntity<>(
+                AirPortRepresentation.from(airPortService.update(input)),
+                HttpStatus.OK
+        );
+    }
+
 }

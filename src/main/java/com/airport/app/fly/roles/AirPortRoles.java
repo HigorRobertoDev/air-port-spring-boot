@@ -12,4 +12,5 @@ public interface AirPortRoles {
     List<AirPort> findAll();
     AirPort findById(Long id);
     void deleteAirPortById(Long id);
+    AirPort update(AirPortDTO airPortDTO);
 }
