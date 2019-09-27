@@ -68,5 +68,11 @@ public class AirPortService implements AirPortRoles {
                 .orElseThrow(() -> new EntityNotFoundException("There isn't airport with id: " + id));
     }
 
+    @Override
+    public void deleteAirPortById(Long id) {
+        AirPort airPort = airPortRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("There isn't Airport with id: " + id));
+        airPortRepository.delete(airPort);
+    }
 
 }

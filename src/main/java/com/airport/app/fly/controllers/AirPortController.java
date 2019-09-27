@@ -50,4 +50,13 @@ public class AirPortController {
         );
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAirPortById(@PathVariable Long id) {
+        airPortService.deleteAirPortById(id);
+        return new ResponseEntity<>(
+                null,
+                HttpStatus.OK
+        );
+    }
+
 }

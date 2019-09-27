@@ -11,5 +11,5 @@ public interface AirPortRoles {
     List<AirPort> saveInBatch(List<AirPortDTO> airPortDTOS);
     List<AirPort> findAll();
     AirPort findById(Long id);
-
+    void deleteAirPortById(Long id);
 }
